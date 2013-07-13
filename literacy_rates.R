@@ -49,6 +49,10 @@ data <- SPARQL(url = "http://wifo5-04.informatik.uni-mannheim.de/factbook/sparql
 # convert from 
 data <- as.data.frame(data$results)
 
+# output the data
+#save(data, file = "factbook.RData")
+load("factbook.RData")
+
 # make plot
 p <- ggplot(data, aes(litFemale, litMale, 
                       label = label, 
