@@ -72,10 +72,5 @@ p <- p + theme_bw() +
            y = "Male Literacy Rate") +
       theme(legend.position = "none") 
 
-# add in the glm model overlay
-
-
-
-# swap things around and perform plot etc based on the residual differences from 
-# the model
+p
   
