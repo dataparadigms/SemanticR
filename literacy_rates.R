@@ -53,19 +53,29 @@ data <- as.data.frame(data$results)
 #save(data, file = "factbook.RData")
 load("factbook.RData")
 
-# make plot
+# make plot structure
 p <- ggplot(data, aes(litFemale, litMale, 
                       label = label, 
                       color = litDiff, 
                       size = abs(litDiff))) 
 
-p + theme_bw() + 
-  geom_text(position = "jitter") + 
-  scale_color_gradient(low = "Blue", high = "Red", label = "") +
-  scale_x_continuous(breaks = seq(0,100,10)) + 
-  scale_y_continuous(breaks = seq(0,100,10)) +
-  labs(title = "Gender Literacy Rates",
-       x = "Female Literacy Rate",
-       y = "Male Literacy Rate") +
-  theme(legend.position = "none") 
+# add in the geoms
+p <- p + theme_bw() + 
+      geom_text(position = "jitter") + 
+      scale_color_gradient(low = "Blue", high = "Red", label = "") +
+      scale_x_continuous(breaks = seq(0,100,10), 
+                         limits = c(0,100)) + 
+      scale_y_continuous(breaks = seq(0,100,10),
+                         limites = c(0,100)) +
+      labs(title = "Gender Literacy Rates",
+           x = "Female Literacy Rate",
+           y = "Male Literacy Rate") +
+      theme(legend.position = "none") 
+
+# add in the glm model overlay
+
+
+
+# swap things around and perform plot etc based on the residual differences from 
+# the model
   
